@@ -34,14 +34,7 @@ exports.default = function (data, mask) {
       case 'X':
         text += c;break;
       default:
-        {
-          if (i == 0 && m != c) {
-            text += m + c;
-            break;
-          }
-          text += m;
-          break;
-        }
+        text += m + (data.length == 1 ? c : '');break;
     }
   }
   return text;
