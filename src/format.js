@@ -20,14 +20,7 @@ export default function (data, mask){
       case 'A' : if (/[a-z]/i.test(c))    {text += c;} else {x = 0;} break;
       case 'N' : if (/[a-z0-9]/i.test(c)) {text += c;} else {x = 0;} break;
       case 'X' : text += c; break;
-      default  : {
-        if(i == 0 && m != c) {
-          text += m + c;
-          break;
-        }
-        text += m;
-        break;
-      }
+      default  : text += m + (data.length == 1 ? c : ''); break;
     }
   }
   return text;
